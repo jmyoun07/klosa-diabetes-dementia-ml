@@ -1,0 +1,44 @@
+# Complete analysis environment.
+#
+# Everything in requirements.txt, plus the packages used by the analyses that
+# are reported in the paper but are not part of the core reproduction driver:
+#
+#   optuna            hyperparameter search (Supplementary Table S2). Not re-run
+#                     by this bundle: the tuned hyperparameters are fixed inputs
+#                     to the re-analysis rather than outputs of it.
+#   shap              SHAP importance and its across-fold stability
+#                     (Figures 3 and 4, Supplementary Table S9, Figure S1)
+#   scikit-survival   random survival forest, time-to-event sensitivity analysis
+#                     (Supplementary Table S4)
+#   lifelines         Aalen-Johansen, Fine-Gray and cause-specific Cox models
+#                     (Supplementary Table S5)
+#   pyreadstat        reading the KLoSA SPSS releases when rebuilding the
+#                     analytic dataset from source
+#
+#   python -m pip install -r requirements-full.txt
+#
+# Note on portability: shap pulls in numba and llvmlite, whose wheels are the
+# most platform-sensitive part of this stack. If the pinned pair fails to
+# install on your platform, relax those two lines only -- they affect the SHAP
+# analyses, not any performance estimate reproduced by this bundle.
+
+-r requirements.txt
+
+optuna==4.9.0
+shap==0.51.0
+scikit-survival==0.28.0
+lifelines==0.30.0
+pyreadstat==1.3.5
+
+# transitive dependencies of the above
+numba==0.66.0
+llvmlite==0.48.0
+cloudpickle==3.1.2
+slicer==0.0.8
+tqdm==4.68.4
+autograd==1.7.0
+alembic==1.18.5
+SQLAlchemy==2.0.51
+Mako==1.3.12
+PyYAML==6.0.2
+colorama==0.4.6

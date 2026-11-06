@@ -1,0 +1,57 @@
+# Cross-platform conda environment for the core reproduction (Linux, macOS,
+# Windows). Equivalent to requirements.txt; use this when pip wheels for the
+# pinned versions are unavailable on your platform.
+#
+#   conda env create -f environment.yml
+#   conda activate klosa-mci-dementia
+#   cd src && python run_all.py
+#
+# The scientific stack is taken from conda-forge, where builds exist for all
+# three operating systems. Package versions are pinned to those used for the
+# reported results; the pins that matter most are scikit-learn and xgboost,
+# because the random forest and extreme gradient boosting fits are sensitive to
+# library-internal random number streams (see README.md).
+#
+# Reproducibility caveat: identical package versions give identical results on a
+# given platform, and the estimates in the paper were produced on Windows 11
+# x86-64 with CPython 3.11.4. Cross-platform bit-identity of floating-point
+# reductions is not guaranteed by any of these libraries; differences, if any,
+# should appear well below the third decimal place. The check printed by each
+# script reports agreement to four decimals, so a genuine platform difference
+# would be visible rather than silent.
+
+name: klosa-mci-dementia
+
+channels:
+  - conda-forge
+  - nodefaults
+
+dependencies:
+  - python=3.11.4
+
+  # core numerical stack
+  - numpy=2.2.1
+  - scipy=1.15.1
+  - pandas=3.0.3
+
+  # machine learning
+  - scikit-learn=1.9.0
+  - py-xgboost=3.2.0
+  - lightgbm=4.6.0
+  - catboost=1.2.10
+
+  # statistics and plotting
+  - statsmodels=0.14.6
+  - matplotlib-base=3.10.0
+
+  # parallelism
+  - joblib=1.5.3
+  - threadpoolctl=3.6.0
+
+  - pip
+
+  # Optional: uncomment to install the full analysis environment as well
+  # (Optuna, SHAP, scikit-survival, lifelines, pyreadstat). These are not needed
+  # for the core reproduction driver.
+  # - pip:
+  #     - -r requirements-full.txt

@@ -1,0 +1,27 @@
+# ---------------------------------------------------------------------------
+# KLoSA microdata is access-controlled and distributed only through the
+# KEIS portal (https://survey.keis.or.kr/klosa/klosa01.jsp). Raw and derived
+# participant-level data must NEVER be committed to this repository.
+# ---------------------------------------------------------------------------
+data/
+*.sav
+*.pkl
+*.dta
+*.xpt
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Model / training artifacts
+catboost_info/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+.claude/

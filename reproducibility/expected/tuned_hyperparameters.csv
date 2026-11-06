@@ -1,0 +1,17 @@
+model,outcome,best_params
+LASSO_LR_tuned,MCI,{'C': 0.011228852885486851}
+CatBoost_tuned,MCI,"{'iterations': 179, 'depth': 3, 'lr': 0.0108405301154713, 'l2': 8.323731451992893}"
+RF_tuned,MCI,"{'n_est': 395, 'max_depth': 3, 'min_split': 3, 'min_leaf': 6}"
+LightGBM_tuned,MCI,"{'n_est': 440, 'max_depth': 4, 'lr': 0.2989056892559635, 'num_leaves': 25, 'min_child': 5}"
+XGBoost_tuned,MCI,"{'n_est': 195, 'max_depth': 5, 'lr': 0.15972114334736912, 'subsample': 0.704264470069072, 'colsample': 0.6693756210782171}"
+GBM_tuned,MCI,"{'n_est': 384, 'max_depth': 3, 'lr': 0.2970424127356136, 'min_split': 6, 'min_leaf': 1, 'subsample': 0.8378744253241945}"
+SVC_tuned,MCI,"{'C': 0.015935025356523597, 'gamma': 0.31319323011909433, 'kernel': 'sigmoid'}"
+LASSO_LR_tuned,Dementia,{'C': 0.325193005847293}
+CatBoost_tuned,Dementia,"{'iterations': 107, 'depth': 4, 'lr': 0.012175113998630714, 'l2': 5.340763364123217}"
+RF_tuned,Dementia,"{'n_est': 110, 'max_depth': 4, 'min_split': 6, 'min_leaf': 5}"
+LightGBM_tuned,Dementia,"{'n_est': 304, 'max_depth': 3, 'lr': 0.014320351709416765, 'num_leaves': 56, 'min_child': 15}"
+XGBoost_tuned,Dementia,"{'n_est': 102, 'max_depth': 3, 'lr': 0.017087325207550658, 'subsample': 0.6993881131624856, 'colsample': 0.5222874152071354}"
+GBM_tuned,Dementia,"{'n_est': 100, 'max_depth': 3, 'lr': 0.010732888044491797, 'min_split': 9, 'min_leaf': 5, 'subsample': 0.6107429902943257}"
+SVC_tuned,Dementia,"{'C': 1.5282726063969216, 'gamma': 0.035940352732871515, 'kernel': 'sigmoid'}"
+AdaBoost_tuned,MCI,"{'n_est': 51, 'lr': 0.880099952480227}"
+AdaBoost_tuned,Dementia,"{'n_est': 179, 'lr': 0.035818408682601985}"

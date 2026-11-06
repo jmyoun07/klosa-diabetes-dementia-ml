@@ -1,0 +1,43 @@
+# Core environment for reproducing the reported performance estimates.
+#
+#   "Development and Internal Validation of Exploratory Prediction Models for
+#    Self-Reported Physician-Diagnosed Mild Cognitive Impairment and Dementia
+#    among People with Treated Diabetes: A Prediction Modeling Study Using
+#    Longitudinal Cohort Data from the KLoSA"
+#
+# This is the minimal set required by src/run_all.py, which regenerates Table 3,
+# Table 5, the out-of-fold calibration of Supplementary Table S8, and Figure 2.
+# Packages used elsewhere in the paper but not by these scripts (Optuna, SHAP,
+# scikit-survival, lifelines, pyreadstat) are in requirements-full.txt, so that
+# the core reproduction does not depend on them.
+#
+# Reference platform: CPython 3.11.4, Windows 11 x86-64.
+# For a cross-platform install, see environment.yml.
+#
+#   python -m pip install -r requirements.txt
+#
+# Why the pins matter: the random forest and extreme gradient boosting fits
+# depend on library-internal random number streams that have changed across
+# releases of scikit-learn and XGBoost. The final dementia model is a random
+# forest, so these two pins in particular are required to reproduce the
+# published values. common.check_environment() warns when they differ.
+
+numpy==2.2.1
+scipy==1.15.1
+pandas==3.0.3
+scikit-learn==1.9.0
+xgboost==3.2.0
+lightgbm==4.6.0
+catboost==1.2.10
+statsmodels==0.14.6
+matplotlib==3.10.0
+joblib==1.5.3
+
+# pinned transitive dependencies of the above
+threadpoolctl==3.6.0
+patsy==1.0.2
+pillow==12.3.0
+python-dateutil==2.9.0.post0
+pytz==2024.2
+packaging==24.2
+six==1.17.0
